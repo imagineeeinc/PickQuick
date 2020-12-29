@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PickOuick | Picker</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <meta name="theme-color" content="white"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+  <link rel='icon' href='Favicon/favicon.ico' type='image/x-icon'>
+
+  <link rel="stylesheet" type="text/css" href="style.css" >
+  <style id="knobs">
+    
+  </style>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <img src="Favicon/android-chrome-512x512.png" style="width: 30px;">
+    <h3>PickOuick | Colour Picker</h3>
+  </div>
+  <p>
+    <label class="switch" style="width: 30px;">
+      <input type="checkbox" id="invert_colour">
+      <span class="in-slider"></span>
+    </label>
+    <span style="width: 200px;">Invert Colour slider</span style="width: 200px;">
+  </p>
+  <span id=" range">
+ <input type="range" min="0" max="255" class="slider" id="red">
+ <input type="number" min="0" max="255" placeholder="red" class="num" id="rednum">
+ <br>
+ <input type="range" min="0" max="255" class="slider" id="green">
+ <input type="number" min="0" max="255" placeholder="green" class="num" id="greennum">
+ <br>
+ <input type="range" min="0" max="255" class="slider" id="blue">
+ <input type="number" min="0" max="255" placeholder="blue" class="num" id="bluenum">
+ </span>
+ <br>
+ <div id="pre"></div>
+ <br>
+ <span id="outs">
+   <div class="outsnum">rgb: <input disabled id="rgb"><img onclick="copy('rgb')" class="copy" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjIgNnYxNmgtMTZ2LTE2aDE2em0yLTJoLTIwdjIwaDIwdi0yMHptLTI0IDE3di0yMWgyMXYyaC0xOXYxOWgtMnoiLz48L3N2Zz4="></div>
+   <div class="outsnum">hex: <input disabled id="hex"><img onclick="copy('hex')" class="copy" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjIgNnYxNmgtMTZ2LTE2aDE2em0yLTJoLTIwdjIwaDIwdi0yMHptLTI0IDE3di0yMWgyMXYyaC0xOXYxOWgtMnoiLz48L3N2Zz4="></div>
+   <div class="outsnum">hsl: <input disabled id="hsl"><img onclick="copy('hsl')" class="copy" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjIgNnYxNmgtMTZ2LTE2aDE2em0yLTJoLTIwdjIwaDIwdi0yMHptLTI0IDE3di0yMWgyMXYyaC0xOXYxOWgtMnoiLz48L3N2Zz4="></div>
+ </span>
+ <div id="user">
+  <img src="https://imagineeeinc.github.io/icon/user.png" style="width: 30px; border-radius: 75px; border: 1px solid lightgrey;">
+  <br>
+  ©<script>document.write(new Date().getFullYear())</script>
+  <a href="https://github.com/imagineeeinc" target="_blank">Imagineee</a></div>
+  <script src="script.js"></script>
+</body>
+</html>
