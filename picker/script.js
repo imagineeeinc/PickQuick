@@ -49,10 +49,14 @@ bluenum.onchange = function () {
   set()
 }
 function set() {
+  //preview
   pre.style.background = "rgba(" + red.value + ", " + green.value + "," + blue.value + ")";
+  pre.style.boxShadow = "5px 5px 8px rgba(" + red.value + ", " + green.value + "," + blue.value + ", 0.3), -5px -5px 8px #ffffff";
+  //copy
   document.getElementById("rgb").value = red.value + ", " + green.value + ", " + blue.value;
   document.getElementById("hex").value = rgbTohex(parseInt(red.value), parseInt(green.value), parseInt(blue.value))
   document.getElementById("hsl").value = rgbtohsl(parseInt(red.value), parseInt(green.value), parseInt(blue.value))
+  //knobs
   if (localStorage.getItem("colour_invert") == "false") {
     document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex(parseInt(red.value), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, parseInt(green.value),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, parseInt(blue.value)) + ";}"
   } else if (localStorage.getItem("colour_invert") == "true") {

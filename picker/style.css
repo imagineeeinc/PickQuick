@@ -84,15 +84,15 @@ input {
 
 #red {
   /*background-color: crimson;*/
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);
 }
 #green {
   /*background-color: springgreen;*/
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,0,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,0,1) 100%);
 }
 #blue {
   /*background-color: cyan;*/
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,255,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,255,1) 100%);
 }
 
 
@@ -111,8 +111,9 @@ input {
   height: 200px;
   border-radius: 10px;
   background-color: black;
-  box-shadow: 10px 10px 26px #d4d4d4, -10px -10px 26px #ffffff;
+  /*box-shadow: 10px 10px 26px #d4d4d4, -10px -10px 26px #ffffff;*/
   border: solid 2px lightgrey;
+  transition-duration: 0s;
 }
 
 #outs {
@@ -144,23 +145,36 @@ input:disabled {
   font-size: 10pt;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
   -webkit-user-select: none;
-  box-shadow: 10px 10px 26px #d4d4d4, -10px -10px 26px #ffffff;
+  box-shadow: 5px 5px 8px rgba(220, 20, 60, 0.3);
   padding: 20px;
   border-radius: 10px;
-  margin-top: 20vh;
 
   position: absolute;
   right: 10px;
   bottom: 10px;
   text-align: center;
   background-color: rgba(220, 20, 60, 0.1);
+  border: 1px solid crimson;
 } 
 a {
   color: crimson;
 }
-@media only screen and (max-width: 735px) {
+@media only screen and (max-width: 1000px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
   #user {
-    display: none;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    width: 31px;  
+    flex-shrink: 0;
+    margin-left: calc(100% - 80px);
+    bottom: 10px;
+  }
+  #user > span {
+    display: none; 
   }
 }
 
