@@ -64,6 +64,7 @@ function set() {
   }
   //document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex(parseInt(red.value), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, parseInt(green.value),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, parseInt(blue.value)) + ";}"
   //document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex((255 - parseInt(red.value)), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, (255 - parseInt(green.value)),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, (255 - parseInt(blue.value))) + ";}"
+  document.getElementById("grad").innerHTML = "#red { background: linear-gradient(90deg, rgba(0," + green.value + "," + blue.value + ",1) 0%, rgba(255," + green.value + "," + blue.value + ",1) 100%);}\n#green { background: linear-gradient(90deg, rgba(" + red.value + ",0," + blue.value + ",1) 0%, rgba(" + red.value + ",255," + blue.value + ",1) 100%);}\n#blue { background: linear-gradient(90deg, rgba(" + red.value + "," + green.value + ",0,1) 0%, rgba(" + red.value + "," + green.value + ",255,1) 100%);}"
 }
 function checked() {
   setInterval(function() {
@@ -144,4 +145,16 @@ function copy(ele) {
   console.log("fail to copy")
   alert("looks like copy doesn't work on your device")
 });
+}
+function random() {
+  //preview
+  var r = Math.round(Math.floor(Math.random() * 255) + 0);
+  var g = Math.round(Math.floor(Math.random() * 255) + 0);
+  var b = Math.round(Math.floor(Math.random() * 255) + 0);
+  red.value = r;
+  green.value = g;
+  blue.value = b;
+  rednum.value = r;
+  greennum.value = g;
+  bluenum.value = b;
 }

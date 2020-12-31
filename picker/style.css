@@ -84,15 +84,15 @@ input {
 
 #red {
   /*background-color: crimson;*/
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);
+  /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);*/
 }
 #green {
   /*background-color: springgreen;*/
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,0,1) 100%);
+  /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,0,1) 100%);*/
 }
 #blue {
   /*background-color: cyan;*/
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,255,1) 100%);
+  /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,255,1) 100%);*/
 }
 
 
@@ -223,7 +223,7 @@ a {
 }
 
 .switch input:active + .in-slider {
-  box-shadow: 2px 2px 10px crimson;
+  box-shadow: 5px 5px 8px  rgba(220, 20, 60, 0.2);
 }
 
 .switch input:checked + .in-slider:before {
@@ -236,4 +236,18 @@ a {
 }
 .in-slider:before {
   border-radius: 5px;
+}
+button {
+  background-color: rgba(220, 20, 60, 0.3);
+  border: 1px solid rgba(220, 20, 60, 0.5);
+}
+button:hover {
+  box-shadow: 5px 5px 8px  rgba(220, 20, 60, 0.2);
+}
+#divider {
+  height: 10px;
+  width: 0px;
+  margin: 0 5px 0 5px;
+  background-color: black;
+  border: 1px solid black;
 }
