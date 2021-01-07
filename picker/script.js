@@ -54,13 +54,14 @@ function set() {
   pre.style.boxShadow = "5px 5px 8px rgba(" + red.value + ", " + green.value + "," + blue.value + ", 0.3), -5px -5px 8px #ffffff";
   //copy
   document.getElementById("rgb").value = red.value + ", " + green.value + ", " + blue.value;
-  document.getElementById("hex").value = rgbTohex(parseInt(red.value), parseInt(green.value), parseInt(blue.value))
+  document.getElementById("hex").value = rgbtohex(parseInt(red.value), parseInt(green.value), parseInt(blue.value))
   document.getElementById("hsl").value = rgbtohsl(parseInt(red.value), parseInt(green.value), parseInt(blue.value))
+  document.getElementById("cmyk").value = rgbtocmyk(parseInt(red.value), parseInt(green.value), parseInt(blue.value))
   //knobs
   if (localStorage.getItem("colour_invert") == "false") {
-    document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex(parseInt(red.value), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, parseInt(green.value),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, parseInt(blue.value)) + ";}"
+    document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbtohex(parseInt(red.value), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbtohex(0, parseInt(green.value),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbtohex(0, 0, parseInt(blue.value)) + ";}"
   } else if (localStorage.getItem("colour_invert") == "true") {
-    document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex((255 - parseInt(red.value)), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, (255 - parseInt(green.value)),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, (255 - parseInt(blue.value))) + ";}"
+    document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbtohex((255 - parseInt(red.value)), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbtohex(0, (255 - parseInt(green.value)),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbtohex(0, 0, (255 - parseInt(blue.value))) + ";}"
   }
   //document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex(parseInt(red.value), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, parseInt(green.value),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, parseInt(blue.value)) + ";}"
   //document.getElementById("knobs").innerHTML = "#red::-webkit-slider-thumb { background-color: " + rgbTohex((255 - parseInt(red.value)), 0, 0) + ";}\n#green::-webkit-slider-thumb{ background-color: " + rgbTohex(0, (255 - parseInt(green.value)),0) + ";}\n#blue::-webkit-slider-thumb { background-color: " + rgbTohex(0, 0, (255 - parseInt(blue.value))) + ";}"
@@ -76,7 +77,7 @@ function checked() {
     set()
   }, 1)
 }
-function rgbTohex(r, g, b) {
+function rgbtohex(r, g, b) {
   r = r.toString(16);
   g = g.toString(16);
   b = b.toString(16);
@@ -133,6 +134,30 @@ function rgbtohsl(r,g,b) {
   l = +(l * 100).toFixed(1);
 
   return h + "," + s + "%," + l + "%";
+}
+function rgbtocmyk(r,g,b,normalized){
+  var c = 1 - (r / 255);
+  var m = 1 - (g / 255);
+  var y = 1 - (b / 255);
+  var k = Math.min(c, Math.min(m, y));
+  
+  c = (c - k) / (1 - k);
+  m = (m - k) / (1 - k);
+  y = (y - k) / (1 - k);
+  
+  if(!normalized){
+      c = Math.round(c * 10000) / 100;
+      m = Math.round(m * 10000) / 100;
+      y = Math.round(y * 10000) / 100;
+      k = Math.round(k * 10000) / 100;
+  }
+  
+  c = isNaN(c) ? 0 : c;
+  m = isNaN(m) ? 0 : m;
+  y = isNaN(y) ? 0 : y;
+  k = isNaN(k) ? 0 : k;
+  
+  return Math.round(c) + "%, " + Math.round(m) + "%, " + Math.round(y) + "%, " + Math.round(k) + "%"
 }
 
 function copy(ele) {

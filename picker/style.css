@@ -202,6 +202,7 @@ a {
   background-color: lightgrey;
   -webkit-transition: .2s;
   transition: .2s;
+  box-shadow: 1px 1px 5px rgba(220, 20, 60, 0.2);
 }
 
 .in-slider:before {
@@ -218,8 +219,8 @@ a {
 }
 
 .switch input:checked + .in-slider {
-  background-color: crimson;
-  opacity: 0.5;
+  background-color: rgba(220, 20, 60, 0.5);
+  box-shadow: 2px 2px 5px  rgba(220, 20, 60, 0.3);
 }
 
 .switch input:active + .in-slider {
@@ -238,12 +239,14 @@ a {
   border-radius: 5px;
 }
 button {
-  background-color: rgba(220, 20, 60, 0.3);
-  border: 1px solid rgba(220, 20, 60, 0.5);
+  background-color: rgba(220, 20, 60, 0.1);
+  border: 1px solid crimson;
   border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(220, 20, 60, 0.2);
+  outline: none;
 }
 button:hover {
-  box-shadow: 5px 5px 8px  rgba(220, 20, 60, 0.2);
+  box-shadow: 5px 5px 8px  rgba(220, 20, 60, 0.3);
 }
 #divider {
   height: 10px;
